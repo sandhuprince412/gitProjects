@@ -1,32 +1,10 @@
 import express from "express";
 import bodyParser from "body-parser";
-import pg from "pg";
 
 const app = express();
 const port = 3000;
 
 let totalCorrect = 0;
-
-const db = new pg.Client({
-  user: "postgres",
-  database: "World",
-  host: "localhost",
-  password: "",
-  port: 5432,
-});
-
-db.connect();
-
-let quiz = [];
-
-db.query("Select * from flags", (err, res) => {
-  if (err) {
-    console.error("cannot extract data: ", err.stack);
-  } else {
-    quiz = res.rows;
-  }
-  db.end();
-});
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
