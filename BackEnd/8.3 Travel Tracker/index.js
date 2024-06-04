@@ -9,7 +9,7 @@ const db = new pg.Client({
   user: "postgres",
   host: "localhost",
   database: "World",
-  password: "123456",
+  password: "$CANAda007$",
   port: 5432,
 });
 db.connect();
@@ -19,12 +19,14 @@ app.use(express.static("public"));
 
 async function checkVisisted() {
   const result = await db.query("SELECT country_code FROM visited_countries");
+
   let countries = [];
   result.rows.forEach((country) => {
     countries.push(country.country_code);
   });
   return countries;
 }
+
 // GET home page
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
@@ -37,8 +39,8 @@ app.post("/add", async (req, res) => {
 
   try {
     const result = await db.query(
-      "SELECT country_code FROM countries WHERE LOWER(country_name) LIKE '%' || $1 || '%';",
-      [input.toLowerCase()]
+      "SELECT country_code FROM countries WHERE Lower(country_name) like $1 || $2 || $3",
+      ["%", input.toLowerCase(), "%"]
     );
 
     const data = result.rows[0];
