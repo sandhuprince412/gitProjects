@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>Registration</h1>
+    <form>
+      <label for="Username">Username</label>
+      <input id="username" type="text" placeholder="Enter Username" /><br />
+      <label for="wrongUsername" id="wrongUsername" style="display: none"
+        >Username must be less then 13 characters</label
+      >
+      <label for="Email">Email</label>
+      <input id="email" type="email" placeholder="Enter Email" /><br />
+      <label for="Password">Password</label>
+      <input id="password" type="password" placeholder="Enter Password" /><br />
+      <label for="Confirm Password">Confirm Password</label>
+      <input
+        id="confirnPassword"
+        type="password"
+        placeholder="Confirm Password"
+      /><br />
+      <button id="button">Submit</button>
+    </form>
+  </body>
+</html>
