@@ -16,7 +16,7 @@ const Team = () => {
         <div className="team_container">
           {data[0].team.map((element) => {
             return (
-              <div className="card" id={element.id}>
+              <div key={element.id} className="card">
                 <img src={element.image} alt={element.name} />
                 <h3>{element.name}</h3>
                 <p>{element.designation}</p>
