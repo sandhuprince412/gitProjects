@@ -7,6 +7,119 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="header"></div>
+    <div id="header">
+      <div class="container">
+        <nav>
+          <img src="" alt="logo" class="logo" />
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Services</a></li>
+            <li><a href="/">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-text">
+          <p>Web develooper</p>
+          <h1>
+            Hi, i am <span>Prince</span><br />
+            from Canada.
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-----------------------about---------------------------->
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <div class="about-col-1">
+            <img src="Images/images.jpg" alt="user" />
+          </div>
+          <div class="about-col-2">
+            <h1 class="sub-title">About Me</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit
+              quaerat nesciunt fuga. Quidem accusantium neque aliquam nostrum
+              quaerat, est eos velit officia rem! Cum maxime at sed. Sit nulla
+              distinctio corrupti doloremque, velit assumenda iure suscipit
+              necessitatibus voluptatum facere magnam commodi fugiat vel eaque
+              repudiandae in excepturi quam ab aut!
+            </p>
+            <div class="tab-titles">
+              <p class="tab-links active-link" onclick="opentab('skills')">
+                Skills
+              </p>
+              <p class="tab-links" onclick="opentab('experience')">
+                Experience
+              </p>
+              <p class="tab-links" onclick="opentab('education')">Education</p>
+            </div>
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li><span>UI/UX</span><br />Designing Web/App interfaces</li>
+                <li><span>Web Development</span><br />Web app development</li>
+                <li>
+                  <span>App development</span><br />Building Andriod/ios apps
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="experience">
+              <ul>
+                <li>
+                  <span>Experience</span><br />Designing Web/App interfaces
+                </li>
+                <li><span>Web Development</span><br />Web app development</li>
+                <li>
+                  <span>App development</span><br />Building Andriod/ios apps
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="education">
+              <ul>
+                <li>
+                  <span>Education</span><br />Designing Web/App interfaces
+                </li>
+                <li><span>Web Development</span><br />Web app development</li>
+                <li>
+                  <span>App development</span><br />Building Andriod/ios apps
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ------------------------services----------------------- -->
+    <div id="services">
+      <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+          <div>
+            <h2>Web Design</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Assumenda, corrupti.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <div>
+            <h2>UI Design</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Assumenda, corrupti.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <div>
+            <h2>App Design</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Assumenda, corrupti.
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
   </body>
 </html>
