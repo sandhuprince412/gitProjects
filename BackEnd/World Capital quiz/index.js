@@ -13,7 +13,7 @@ const db = new pg.Client({
   port: 5432,
 });
 
-db.connect();
+db.connect(() => console.log("Database connected"));
 
 let quiz = [
   { country: "France", capital: "Paris" },

@@ -17,7 +17,7 @@ const db = new pg.Client({
   password: "12345",
   port: 5432,
 });
-db.connect();
+db.connect(() => console.log("Database connected"));
 
 app.get("/", (req, res) => {
   res.render("home.ejs");
