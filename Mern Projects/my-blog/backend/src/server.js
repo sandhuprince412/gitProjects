@@ -2,39 +2,43 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config({ path: "../config/.env" });
 import dbConnection from "../database/dbConnection.js";
+import mongoose from "mongoose";
 
 const app = express();
 const port = process.env.PORT || 4000;
 app.use(express.json());
 dbConnection();
 
-const articleInfo = [
-  {
-    name: "react",
-    upvotes: 2,
-    comments: [],
-  },
-  {
-    name: "node",
-    upvotes: 0,
-    comments: [],
-  },
-  {
-    name: "mongodb",
-    upvotes: 3,
-    comments: [],
-  },
-];
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+//Define article schema
+const articleSchema = new mongoose.Schema({
+  name: String,
+  upvotes: Number,
+  comments: [{ postedBy: String, text: String }],
 });
 
-app.put("/api/articles/:name/upvote", (req, res) => {
+const Article = mongoose.model("Article", articleSchema);
+
+app.get("/api/articles/:name", async (req, res) => {
   const { name } = req.params;
-  const article = articleInfo.find((a) => a.name === name);
+
+  const article = await Article.findOne({ name });
   if (article) {
-    article.upvotes += 1;
+    res.json(article);
+  } else {
+    res.sendStatus(404);
+  }
+});
+
+app.put("/api/articles/:name/upvote", async (req, res) => {
+  const { name } = req.params;
+  await Article.updateOne(
+    { name },
+    {
+      $inc: { upvotes: 1 },
+    }
+  );
+  const article = await Article.findOne({ name });
+  if (article) {
     res.send(
       `The article with name ${article.name} has ${article.upvotes} upvotes`
     );
@@ -43,13 +47,18 @@ app.put("/api/articles/:name/upvote", (req, res) => {
   }
 });
 
-app.post("/api/articles/:name/comment", (req, res) => {
+app.post("/api/articles/:name/comment", async (req, res) => {
   const { name } = req.params;
   const { postedBy, text } = req.body;
 
-  const article = articleInfo.find((a) => a.name === name);
+  await Article.updateOne(
+    { name },
+    {
+      $push: { comments: { postedBy, text } },
+    }
+  );
+  const article = await Article.findOne({ name });
   if (article) {
-    article.comments.push({ postedBy, text });
     res.send(article.comments);
   } else {
     res.send("The article doesn'/t exist");
