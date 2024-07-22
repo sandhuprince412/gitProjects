@@ -39,9 +39,7 @@ app.put("/api/articles/:name/upvote", async (req, res) => {
   );
   const article = await Article.findOne({ name });
   if (article) {
-    res.send(
-      `The article with name ${article.name} has ${article.upvotes} upvotes`
-    );
+    res.send(article);
   } else {
     res.send(`The article doesn'/t exist`);
   }
@@ -59,7 +57,7 @@ app.post("/api/articles/:name/comment", async (req, res) => {
   );
   const article = await Article.findOne({ name });
   if (article) {
-    res.send(article.comments);
+    res.send(article);
   } else {
     res.send("The article doesn'/t exist");
   }

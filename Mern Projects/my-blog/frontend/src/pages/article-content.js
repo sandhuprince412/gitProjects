@@ -12,7 +12,7 @@ const articles = [
       "savslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosvsavslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosvsavslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosvsavslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsfvkfsvkvhvohsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosvsavslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosvsavslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosv",
   },
   {
-    name: "mongoDb",
+    name: "mongodb",
     title: "Learn mongoDb",
     content:
       "savslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosvsavslvl lvvbsbvsvsv vkjssj;honfovdsvodsovodsvodsvjvipsvpvvuruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosvsavslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosvsavslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosvsavslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosvsavslvl lvvbsbvsvsv vkjssj;houruhorhogroasfkvfknv nfbvfjsghfshgsaflnfsvbvhsohosnvjsvjsb;vosodsvosv",
