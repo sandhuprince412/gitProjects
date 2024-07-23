@@ -6,6 +6,8 @@ import ArticleListPage from "./pages/ArticleListPage";
 import ArticlePage from "./pages/ArticlePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Navbar from "./Navbar";
+import CreateAccountPage from "./pages/CreateAccountPage.js";
+import LoginPage from "./pages/LoginPage.js";
 
 function App() {
   return (
@@ -15,14 +17,13 @@ function App() {
         <Navbar />
         <div id="page_body">
           <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/about" element={<AboutPage />}></Route>
-            <Route path="/articles" element={<ArticleListPage />}></Route>
-            <Route
-              path="/articles/:articleId"
-              element={<ArticlePage />}
-            ></Route>
-            <Route path="*" element={<NotFoundPage />}></Route>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/articles" element={<ArticleListPage />} />
+            <Route path="/articles/:articleId" element={<ArticlePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/create-account" element={<CreateAccountPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
       </div>
