@@ -1,8 +1,15 @@
 import express from "express";
+import fs from "fs";
+import admin from "firebase-admin";
 import dotenv from "dotenv";
 dotenv.config({ path: "../config/.env" });
 import dbConnection from "../database/dbConnection.js";
 import mongoose from "mongoose";
+
+const credentials = JSON.parse(fs.readFileSync("../credentials.json"));
+admin.initializeApp({
+  credential: admin.credential.cert(credentials),
+});
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -18,11 +25,26 @@ const articleSchema = new mongoose.Schema({
 
 const Article = mongoose.model("Article", articleSchema);
 
+app.use(async (req, res, next) => {
+  const { authtoken } = req.headers;
+  if (authtoken) {
+    try {
+      req.user = await admin.auth().verifyIdToken(authtoken);
+    } catch (error) {
+      res.sendStatus(400);
+    }
+  }
+  next();
+});
+
 app.get("/api/articles/:name", async (req, res) => {
   const { name } = req.params;
+  const { uid } = req.user;
 
   const article = await Article.findOne({ name });
   if (article) {
+    const upvoteIds = article.upvoteIds || [];
+    article.canUpvote = uid && !upvoteIds.include(uid);
     res.json(article);
   } else {
     res.sendStatus(404);

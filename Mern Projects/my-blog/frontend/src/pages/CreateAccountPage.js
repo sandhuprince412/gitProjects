@@ -7,6 +7,20 @@ const CreateAccountPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const createAccount = async () => {
+    try {
+      if (password !== confirmPassword) {
+        setError("Password and confirm password do not match");
+        return;
+      }
+      await createUserWithEmailAndPassword(getAuth(), email, password);
+      navigate("/article");
+    } catch (e) {
+      setError(e.message);
+    }
+  };
+
   return (
     <>
       <h1>Create Account</h1>
