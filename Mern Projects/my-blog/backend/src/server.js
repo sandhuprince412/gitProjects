@@ -1,10 +1,14 @@
 import express from "express";
 import fs from "fs";
+import path from "path";
 import admin from "firebase-admin";
-import dotenv from "dotenv";
-dotenv.config({ path: "../config/.env" });
+import "dotenv/config";
 import dbConnection from "../database/dbConnection.js";
 import mongoose from "mongoose";
+
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const credentials = JSON.parse(fs.readFileSync("./credentials.json"));
 admin.initializeApp({
@@ -12,9 +16,15 @@ admin.initializeApp({
 });
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8000;
 app.use(express.json());
+app.use;
+express.static(path.join(__dirname, "../build"));
 dbConnection();
+
+app.get(/^(?!\/api).+/, (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 
 //Define article schema
 const articleSchema = new mongoose.Schema({
