@@ -1,0 +1,9 @@
+runtime: nodejs18
+
+env_variables:
+  MONGO_USER: "node-server"
+  MONGO_PASSWORD: "kJZVMHsfaG5kwZOQ"
+
+handlers:
+  - url: /.*
+    script: auto
